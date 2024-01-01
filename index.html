@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijital Clock</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="hero">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-gem"></i>
+        <i class="fa-solid fa-gem"></i>
+        <i class="fa-solid fa-clock"></i>
+        <i class="fa-solid fa-clock"></i>
+        <i class="fa-regular fa-clock"></i>
+        <div class="container">
+            <div class="clock">
+                <span id="day">Tue</span>
+                <span>/</span>
+                <span id="month">Aug</span>
+                <span>/</span>
+                <span id="year">2024</span>
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let hrs = document.getElementById("hrs");
+        let min = document.getElementById("min");
+        let sec = document.getElementById("sec");
+        let day = document.getElementById("day");
+        let month = document.getElementById("month");
+        let year = document.getElementById("year");
+        setInterval(() => {
+            let currentTime = new Date();
+            hrs.innerHTML = (currentTime.getHours()< 10? "0":"") + currentTime.getHours();
+            min.innerHTML = (currentTime.getMinutes() < 10? "0": "") + currentTime.getMinutes();
+            sec.innerHTML = (currentTime.getSeconds()<10? "0":"") + currentTime.getSeconds();
+            day.innerHTML = currentTime.toDateString().slice(0,3)
+            month.innerHTML = currentTime.toDateString().slice(4,7);
+            year.innerHTML = currentTime.getFullYear();
+        }, 1000)
+
+
+
+    </script>
+</body>
+</html>
